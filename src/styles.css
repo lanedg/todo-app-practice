@@ -1,0 +1,39 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  background-color: black;
+}
+
+aside {
+  width: 20vw;
+  height: 100vh;
+}
+
+main {
+  width: 80vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding-right: 3em;
+}
+
+#sidebar {
+  border: 2px, solid, white;
+  height: 100%;
+  width: 100%;
+}
+
+#overview {
+  border: 2px, solid, red;
+  height: 25%;
+}
+
+#content {
+  border: 2px, solid, blue;
+  height: 75%;
+}
