@@ -25,3 +25,5 @@ class Task {
     return this.completed;
   }
 }
+
+export { Task };
