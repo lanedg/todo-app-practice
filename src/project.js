@@ -10,3 +10,5 @@ class Project {
     this.taskList.push(new Task(description, dueDate));
   }
 }
+
+export { Project };
