@@ -4,11 +4,12 @@ class Project {
   constructor(projectName) {
     this.name = projectName;
     this.taskList = [];
-  }
-
-  addTask(description, dueDate) {
-    this.taskList.push(new Task(description, dueDate));
+    this.id = crypto.randomUUID();
   }
 }
 
-export { Project };
+function addTask(description, dueDate, project) {
+  project.taskList.push(new Task(description, dueDate));
+}
+
+export { Project, addTask };
