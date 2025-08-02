@@ -12,4 +12,8 @@ function addTask(description, dueDate, project) {
   project.taskList.push(new Task(description, dueDate));
 }
 
-export { Project, addTask };
+function createDefaultProject() {
+  return new Project("Default");
+}
+
+export { Project, addTask, createDefaultProject };
