@@ -1,5 +1,6 @@
 export function updateProjectChoices(projectList) {
   const projectSelect = document.getElementById("project-select");
+  projectSelect.innerHTML = "";
   projectList.forEach((project) => {
     createIndividualOption(project, projectSelect);
   });
