@@ -2,6 +2,7 @@ export function sidebarProjectListBuilder(projectList) {
   const sidebarProjectListContainer = document.getElementById(
     "project-list-container"
   );
+  sidebarProjectListContainer.innerHTML = "";
   projectList.forEach((project) => {
     const projectContainer = buildProjectContainer(
       project,
