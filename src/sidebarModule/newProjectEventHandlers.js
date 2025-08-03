@@ -1,5 +1,7 @@
 import { Project } from "../projectModule/project";
 import { createNewProject } from "../projectModule/newProject";
+import { sidebarProjectListBuilder } from "./sidebarManipulator";
+import { updateProjectChoices } from "./projectChoiceUpdater";
 
 export function createNewProjectEventHandlers(projectList) {
   const newProjectButton = document.getElementById("create-project");
@@ -26,6 +28,8 @@ export function createNewProjectEventHandlers(projectList) {
     createNewProject(name, projectList);
     newProjectDialog.close();
     newProjectForm.reset();
+    sidebarProjectListBuilder(projectList);
+    updateProjectChoices(projectList);
   });
 
   newProjectForm.addEventListener("keydown", (e) => {
