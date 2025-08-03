@@ -37,7 +37,7 @@ main {
   padding: 1em;
   background-color: var(--sidebar-background-color);
   display: grid;
-  grid-template-rows: 5vh 20vh 60vh;
+  grid-template-rows: 5vh 25vh 55vh;
   gap: 4vh;
 }
 
@@ -48,7 +48,8 @@ main {
 #sidebar-navigation-container {
   height: 15vh;
   display: grid;
-  grid-template-rows: 5vh 5vh 5vh 5vh;
+  grid-template-rows: 1fr 1fr 1fr 2fr 2fr;
+  gap: 0.2em;
 }
 
 .sidebar-button {
@@ -73,6 +74,21 @@ main {
 }
 
 #create-project:hover {
+  text-decoration: underline;
+}
+
+#add-task {
+  background-color: var(--sidebar-background-color);
+  border: none;
+  font-size: 2rem;
+  color: var(--content-contrast-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2em;
+}
+
+#add-task:hover {
   text-decoration: underline;
 }
 
