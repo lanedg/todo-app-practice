@@ -1,4 +1,6 @@
 import { addTask } from "../projectModule/project";
+import { storeProjectList } from "../localStorage/localStorageHandler";
+import { sidebarProjectListBuilder } from "./sidebarManipulator";
 
 export function createAddTaskEventHandlers(projectList) {
   const addTaskButton = document.getElementById("add-task");
@@ -32,5 +34,7 @@ export function createAddTaskEventHandlers(projectList) {
 
     addTaskDialog.close();
     addTaskForm.reset();
+    storeProjectList(projectList);
+    sidebarProjectListBuilder(projectList);
   });
 }
