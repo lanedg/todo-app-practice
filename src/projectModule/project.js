@@ -1,4 +1,4 @@
-import { Task } from "./task.js";
+import { Task } from "../taskModule/task";
 
 class Project {
   constructor(projectName) {

@@ -1,4 +1,4 @@
-import { createDefaultProject } from "./project";
+import { createDefaultProject } from "../projectModule/project";
 
 export function retrieveProjectList() {
   if (localStorage.getItem("projectList") === null) {
