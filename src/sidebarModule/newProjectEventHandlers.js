@@ -1,5 +1,5 @@
-import { Project } from "./projectModule/project";
-import { createNewProject } from "./projectModule/newProject";
+import { Project } from "../projectModule/project";
+import { createNewProject } from "../projectModule/newProject";
 
 export function createNewProjectEventHandlers(projectList) {
   const newProjectButton = document.getElementById("create-project");
