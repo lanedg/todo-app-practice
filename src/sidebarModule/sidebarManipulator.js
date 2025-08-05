@@ -1,4 +1,5 @@
 import { addProjectHeaderEventListener } from "./projectHeaderEventListener";
+import { addProjectTaskEventListener } from "./projectTaskEventListener";
 
 export function sidebarProjectListBuilder(projectList) {
   const sidebarProjectListContainer = document.getElementById(
@@ -34,15 +35,16 @@ function buildProjectHeader(project, projectContainer) {
 
 function buildProjectTasks(project, projectContainer) {
   project.taskList.forEach((task) => {
-    buildIndividualTask(task, projectContainer);
+    buildIndividualTask(task, projectContainer, project);
   });
 }
 
-function buildIndividualTask(task, projectContainer) {
+function buildIndividualTask(task, projectContainer, project) {
   const taskButton = document.createElement("button");
   taskButton.classList.add("sidebar-task-button");
   taskButton.setAttribute("data-taskId", task.id);
   taskButton.setAttribute("data-projectId", projectContainer.dataset.projectId);
   taskButton.textContent = task.description;
+  addProjectTaskEventListener(taskButton, project);
   projectContainer.appendChild(taskButton);
 }
