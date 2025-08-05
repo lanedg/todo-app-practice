@@ -1,5 +1,6 @@
 import { addTaskCompletedEventListener } from "./taskCompletedEventListener";
 import deleteIcon from "../assets/deleteSVG.svg";
+import { addTaskDeleteEventListener } from "./taskDeleteEventListener";
 
 export function buildProjectViewContent(project) {
   const contentContainer = document.getElementById("content");
@@ -74,4 +75,5 @@ function buildTaskDeleteButton(task, project, taskContainer) {
   deleteSVG.alt = "Delete";
   taskDeleteButton.appendChild(deleteSVG);
   taskContainer.appendChild(taskDeleteButton);
+  addTaskDeleteEventListener(taskDeleteButton, task, project, taskContainer);
 }
