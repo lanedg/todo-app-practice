@@ -1,10 +1,11 @@
 import { addTaskCompletedEventListener } from "./taskCompletedEventListener";
+import deleteIcon from "../assets/deleteSVG.svg";
 
 export function buildProjectViewContent(project) {
   const contentContainer = document.getElementById("content");
   contentContainer.innerHTML = "";
   project.taskList.forEach((task) => {
-    buildIndividualTask(task, contentContainer);
+    buildIndividualTask(task, project, contentContainer);
   });
 }
 
@@ -21,7 +22,7 @@ function buildProjectName(project, projectContainer) {
   projectContainer.appendChild(projectName);
 }
 
-function buildIndividualTask(task, contentContainer) {
+function buildIndividualTask(task, project, contentContainer) {
   const taskContainer = buildTaskContainer();
   contentContainer.appendChild(taskContainer);
   buildTaskCompletedButton(task, taskContainer);
@@ -29,6 +30,7 @@ function buildIndividualTask(task, contentContainer) {
   taskContainer.appendChild(taskInfoContainer);
   buildTaskDescription(task, taskInfoContainer);
   buildTaskDate(task, taskInfoContainer);
+  buildTaskDeleteButton(task, project, taskContainer);
 }
 
 function buildTaskContainer() {
@@ -62,4 +64,14 @@ function buildTaskDate(task, taskInfoContainer) {
   taskDate.classList.add("task-date");
   taskDate.textContent = task.dateString;
   taskInfoContainer.appendChild(taskDate);
+}
+
+function buildTaskDeleteButton(task, project, taskContainer) {
+  const taskDeleteButton = document.createElement("button");
+  taskDeleteButton.classList.add("task-delete");
+  const deleteSVG = document.createElement("img");
+  deleteSVG.src = deleteIcon;
+  deleteSVG.alt = "Delete";
+  taskDeleteButton.appendChild(deleteSVG);
+  taskContainer.appendChild(taskDeleteButton);
 }
