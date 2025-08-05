@@ -1,3 +1,5 @@
+import { addTaskCompletedEventListener } from "./taskCompletedEventListener";
+
 export function buildProjectViewContent(project) {
   const contentContainer = document.getElementById("content");
   contentContainer.innerHTML = "";
@@ -38,6 +40,7 @@ function buildTaskContainer() {
 function buildTaskCompletedButton(task, taskContainer) {
   const completedButton = document.createElement("button");
   completedButton.classList.add("task-completed-button");
+  addTaskCompletedEventListener(completedButton, task, taskContainer);
   taskContainer.appendChild(completedButton);
 }
 
