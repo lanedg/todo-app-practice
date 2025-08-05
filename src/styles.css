@@ -26,7 +26,6 @@ main {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  padding-right: 3em;
 }
 
 /* Sidebar Styling */
@@ -133,13 +132,23 @@ main {
   height: 15%;
   padding-right: 3rem;
   padding-left: 3rem;
+  margin-top: 3rem;
   background-color: var(--main-content-background-color);
   display: flex;
   align-items: flex-end;
+  align-items: center;
+  gap: 1em;
+  border-bottom: 2px solid black;
 }
 
 .overview-header {
   font-size: 3rem;
+}
+
+.project-delete {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
 }
 
 /* End of Overview Styling */

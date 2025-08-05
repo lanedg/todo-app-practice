@@ -14,7 +14,6 @@ export function addTaskDeleteEventListener(
     }
     taskContainer.remove();
     deleteSideBarTask(task);
-    console.log(projectList);
     storeProjectList(projectList);
   });
 }

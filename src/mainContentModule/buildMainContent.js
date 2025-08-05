@@ -23,6 +23,19 @@ function buildProjectName(project, projectContainer) {
   projectContainer.appendChild(projectName);
 }
 
+export function buildProjectDeleteButton(project, projectContainer) {
+  const projectDeleteButton = document.createElement("button");
+  projectDeleteButton.classList.add("project-delete");
+  const deleteSVG = document.createElement("img");
+  console.log(deleteIcon);
+  deleteSVG.src = deleteIcon;
+  deleteSVG.alt = "";
+  projectDeleteButton.appendChild(deleteSVG);
+  const deleteText = document.createTextNode("Delete Project?");
+  projectDeleteButton.appendChild(deleteText);
+  projectContainer.appendChild(projectDeleteButton);
+}
+
 function buildIndividualTask(task, project, contentContainer) {
   const taskContainer = buildTaskContainer();
   contentContainer.appendChild(taskContainer);

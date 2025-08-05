@@ -1,3 +1,5 @@
+import { buildProjectDeleteButton } from "./buildMainContent";
+
 export function buildProjectOverview(project) {
   const overview = document.getElementById("overview");
   overview.innerHTML = "";
@@ -10,4 +12,5 @@ function buildProjectOverviewHeader(project, overviewContainer) {
   header.classList.add("overview-header");
   header.textContent = project.name;
   overviewContainer.appendChild(header);
+  buildProjectDeleteButton(project, overviewContainer);
 }
