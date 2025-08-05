@@ -1,3 +1,5 @@
+import { addProjectHeaderEventListener } from "./projectHeaderEventListener";
+
 export function sidebarProjectListBuilder(projectList) {
   const sidebarProjectListContainer = document.getElementById(
     "project-list-container"
@@ -26,6 +28,7 @@ function buildProjectHeader(project, projectContainer) {
   projectHeader.classList.add("sidebar-project-button");
   projectHeader.setAttribute("data-projectId", project.id);
   projectHeader.textContent = project.name;
+  addProjectHeaderEventListener(projectHeader, project);
   projectContainer.appendChild(projectHeader);
 }
 

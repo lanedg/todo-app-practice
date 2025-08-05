@@ -1,4 +1,10 @@
-export function buildProjectViewContent(project) {}
+export function buildProjectViewContent(project) {
+  const contentContainer = document.getElementById("content");
+  contentContainer.innerHTML = "";
+  project.taskList.forEach((task) => {
+    buildIndividualTask(task, contentContainer);
+  });
+}
 
 function buildProjectContainer() {
   const projectContainer = document.createElement("div");
@@ -52,4 +58,5 @@ function buildTaskDate(task, taskInfoContainer) {
   const taskDate = document.createElement("p");
   taskDate.classList.add("task-date");
   taskDate.textContent = task.dateString;
+  taskInfoContainer.appendChild(taskDate);
 }
