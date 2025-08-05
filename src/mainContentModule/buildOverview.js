@@ -1,4 +1,13 @@
 export function buildProjectOverview(project) {
-  const header = document.querySelector(".overview-header");
+  const overview = document.getElementById("overview");
+  overview.innerHTML = "";
+  overview.setAttribute("data-overview-id", project.id);
+  buildProjectOverviewHeader(project, overview);
+}
+
+function buildProjectOverviewHeader(project, overviewContainer) {
+  const header = document.createElement("h1");
+  header.classList.add("overview-header");
   header.textContent = project.name;
+  overviewContainer.appendChild(header);
 }
