@@ -1,4 +1,5 @@
 import { switchTaskCompletionStatus } from "../taskModule/task";
+import { storeProjectList } from "../localStorage/localStorageHandler";
 
 export function addTaskCompletedEventListener(
   completedButton,
@@ -7,7 +8,7 @@ export function addTaskCompletedEventListener(
 ) {
   completedButton.addEventListener("click", (e) => {
     switchTaskCompletionStatus(task);
-
+    storeProjectList(projectList);
     if (task.completed === true) {
       taskCompletedState(taskContainer, completedButton);
     } else {
