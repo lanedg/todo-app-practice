@@ -9,12 +9,20 @@ export function addTaskCompletedEventListener(
     switchTaskCompletionStatus(task);
 
     if (task.completed === true) {
-      taskContainer.style.opacity = "0.3";
-      completedButton.style.backgroundColor = "var(--seperation-line-color)";
+      taskCompletedState(taskContainer, completedButton);
     } else {
-      taskContainer.style.opacity = "1";
-      completedButton.style.backgroundColor =
-        "var(--main-content-background-color)";
+      taskUncompletedState(taskContainer, completedButton);
     }
   });
+}
+
+export function taskCompletedState(taskContainer, completedButton) {
+  taskContainer.style.opacity = "0.3";
+  completedButton.style.backgroundColor = "var(--seperation-line-color)";
+}
+
+export function taskUncompletedState(taskContainer, completedButton) {
+  taskContainer.style.opacity = "1";
+  completedButton.style.backgroundColor =
+    "var(--main-content-background-color)";
 }

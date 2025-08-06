@@ -3,6 +3,10 @@ import deleteIcon from "../assets/deleteSVG.svg";
 import { addTaskDeleteEventListener } from "./taskDeleteEventListener";
 import { addProjectDeleteEventListener } from "./projectDeleteEventListener";
 import { getDatesToday } from "../todayView/todayDateArray";
+import {
+  taskCompletedState,
+  taskUncompletedState,
+} from "./taskCompletedEventListener";
 
 export function buildProjectViewContent(project) {
   const contentContainer = document.getElementById("content");
@@ -85,6 +89,11 @@ function buildTaskCompletedButton(task, taskContainer) {
   completedButton.classList.add("task-completed-button");
   addTaskCompletedEventListener(completedButton, task, taskContainer);
   taskContainer.appendChild(completedButton);
+  if (task.completed === true) {
+    taskCompletedState(taskContainer, completedButton);
+  } else {
+    taskUncompletedState(taskContainer, completedButton);
+  }
 }
 
 function buildTodayViewTaskCompleteButton(task, project, taskContainer) {
