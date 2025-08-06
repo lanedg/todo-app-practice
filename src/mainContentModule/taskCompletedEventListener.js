@@ -1,6 +1,5 @@
 import { storeProjectList } from "../localStorage/localStorageHandler";
 import { switchTaskCompletionStatus } from "../taskModule/task";
-import { storeProjectList } from "../localStorage/localStorageHandler";
 
 export function addTaskCompletedEventListener(
   completedButton,

@@ -7,10 +7,6 @@ import deleteIcon from "../assets/deleteSVG.svg";
 import { addTaskDeleteEventListener } from "./taskDeleteEventListener";
 import { addProjectDeleteEventListener } from "./projectDeleteEventListener";
 import { getDatesToday } from "../todayView/todayDateArray";
-import {
-  taskCompletedState,
-  taskUncompletedState,
-} from "./taskCompletedEventListener";
 
 export function buildProjectViewContent(project) {
   const contentContainer = document.getElementById("content");
