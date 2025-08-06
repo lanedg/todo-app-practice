@@ -7,6 +7,10 @@ import deleteIcon from "../assets/deleteSVG.svg";
 import { addTaskDeleteEventListener } from "./taskDeleteEventListener";
 import { addProjectDeleteEventListener } from "./projectDeleteEventListener";
 import { getDatesToday } from "../todayView/todayDateArray";
+import {
+  taskCompletedState,
+  taskUncompletedState,
+} from "./taskCompletedEventListener";
 
 export function buildProjectViewContent(project) {
   const contentContainer = document.getElementById("content");
@@ -25,7 +29,7 @@ export function buildTodayViewContent() {
     contentContainer.appendChild(projectContainer);
     buildProjectName(project, projectContainer);
     project.taskList.forEach((task) => {
-      buildIndividualTask(task, project, contentContainer);
+      buildTodayViewTask(task, project, contentContainer);
     });
   });
 }
@@ -67,6 +71,17 @@ function buildIndividualTask(task, project, contentContainer) {
   buildTaskDeleteButton(task, project, taskContainer);
 }
 
+function buildTodayViewTask(task, project, contentContainer) {
+  const taskContainer = buildTaskContainer();
+  contentContainer.appendChild(taskContainer);
+  buildTodayViewTaskCompleteButton(task, project, taskContainer);
+  const taskInfoContainer = buildTaskInfoContainer();
+  taskContainer.appendChild(taskInfoContainer);
+  buildTaskDescription(task, taskInfoContainer);
+  buildTaskDate(task, taskInfoContainer);
+  buildTodayViewTaskDeleteButton(task, project, taskContainer);
+}
+
 function buildTaskContainer() {
   const taskContainer = document.createElement("div");
   taskContainer.classList.add("task-container");
@@ -83,6 +98,36 @@ function buildTaskCompletedButton(task, taskContainer) {
   } else {
     taskUncompletedState(taskContainer, completedButton);
   }
+}
+
+function buildTodayViewTaskCompleteButton(task, project, taskContainer) {
+  const trueProject = findTrueProject(project);
+  const trueTask = findTrueTask(task, trueProject);
+  const completedButton = document.createElement("button");
+  completedButton.classList.add("task-completed-button");
+  addTaskCompletedEventListener(completedButton, trueTask, taskContainer);
+  taskContainer.appendChild(completedButton);
+  if (trueTask.completed === true) {
+    taskCompletedState(taskContainer, completedButton);
+  } else {
+    taskUncompletedState(taskContainer, completedButton);
+  }
+}
+
+function buildTodayViewTaskDeleteButton(task, project, taskContainer) {
+  const trueProject = findTrueProject(project);
+  const trueTask = findTrueTask(task, trueProject);
+  buildTaskDeleteButton(trueTask, trueProject, taskContainer);
+}
+
+function findTrueProject(project) {
+  const trueProject = projectList.find((proj) => proj.id === project.id);
+  return trueProject;
+}
+
+function findTrueTask(task, trueProject) {
+  const trueTask = trueProject.taskList.find((tsk) => tsk.id === task.id);
+  return trueTask;
 }
 
 function buildTaskInfoContainer() {
