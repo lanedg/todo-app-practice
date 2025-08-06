@@ -103,6 +103,11 @@ function buildTodayViewTaskCompleteButton(task, project, taskContainer) {
   completedButton.classList.add("task-completed-button");
   addTaskCompletedEventListener(completedButton, trueTask, taskContainer);
   taskContainer.appendChild(completedButton);
+  if (trueTask.completed === true) {
+    taskCompletedState(taskContainer, completedButton);
+  } else {
+    taskUncompletedState(taskContainer, completedButton);
+  }
 }
 
 function buildTodayViewTaskDeleteButton(task, project, taskContainer) {
