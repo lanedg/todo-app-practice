@@ -47,7 +47,6 @@ export function buildProjectDeleteButton(project, projectContainer) {
   const projectDeleteButton = document.createElement("button");
   projectDeleteButton.classList.add("project-delete");
   const deleteSVG = document.createElement("img");
-  console.log(deleteIcon);
   deleteSVG.src = deleteIcon;
   deleteSVG.alt = "";
   projectDeleteButton.appendChild(deleteSVG);

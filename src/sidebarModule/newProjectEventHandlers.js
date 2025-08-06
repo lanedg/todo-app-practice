@@ -10,7 +10,6 @@ export function createNewProjectEventHandlers(projectList) {
   const nameInput = document.getElementById("project-name");
   const cancelButton = document.getElementById("new-project-form-cancel");
   const createButton = document.getElementById("new-project-form-create");
-  console.log(newProjectForm);
   newProjectButton.addEventListener("click", () => {
     newProjectDialog.showModal();
   });
@@ -21,9 +20,7 @@ export function createNewProjectEventHandlers(projectList) {
 
   newProjectForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    console.log("submitted");
     const data = new FormData(e.target);
-    console.log(data.get("projectName"));
     const name = data.get("projectName");
     createNewProject(name, projectList);
     newProjectDialog.close();

@@ -25,17 +25,16 @@ export function createAddTaskEventHandlers(projectList) {
   addTaskForm.addEventListener("submit", (e) => {
     e.preventDefault();
     const data = new FormData(e.target);
-    console.log(data.get("projectSelection"));
     const projectId = data.get("projectSelection");
     const description = data.get("taskDescription");
     const dueDate = data.get("taskDueDate");
 
     const project = projectList.find((project) => project.id === projectId);
     addTask(description, dueDate, project);
-    updateMainContentAfterAddTask(project);
     addTaskDialog.close();
     addTaskForm.reset();
     storeProjectList(projectList);
+    updateMainContentAfterAddTask(project);
     sidebarProjectListBuilder(projectList);
   });
 }
