@@ -1,6 +1,6 @@
 import { storeProjectList } from "../localStorage/localStorageHandler";
 import { buildTodayView } from "../todayView/buildTodayView";
-
+import { updateProjectChoices } from "../sidebarModule/projectChoiceUpdater";
 //TODO: when deleting project reset main content back to today view
 
 export function addProjectDeleteEventListener(projectDeleteButton, project) {
@@ -15,5 +15,6 @@ export function addProjectDeleteEventListener(projectDeleteButton, project) {
     );
     projectToDelete.remove();
     buildTodayView();
+    updateProjectChoices(projectList);
   });
 }
