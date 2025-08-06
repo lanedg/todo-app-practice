@@ -1,4 +1,8 @@
-import { addTaskCompletedEventListener } from "./taskCompletedEventListener";
+import {
+  addTaskCompletedEventListener,
+  taskCompletedState,
+  taskUncompletedState,
+} from "./taskCompletedEventListener";
 import deleteIcon from "../assets/deleteSVG.svg";
 import { addTaskDeleteEventListener } from "./taskDeleteEventListener";
 import { addProjectDeleteEventListener } from "./projectDeleteEventListener";
@@ -60,6 +64,11 @@ function buildTaskCompletedButton(task, taskContainer) {
   completedButton.classList.add("task-completed-button");
   addTaskCompletedEventListener(completedButton, task, taskContainer);
   taskContainer.appendChild(completedButton);
+  if (task.completed === true) {
+    taskCompletedState(taskContainer, completedButton);
+  } else {
+    taskUncompletedState(taskContainer, completedButton);
+  }
 }
 
 function buildTaskInfoContainer() {
