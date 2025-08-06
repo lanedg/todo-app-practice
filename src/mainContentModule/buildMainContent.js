@@ -11,6 +11,20 @@ export function buildProjectViewContent(project) {
   });
 }
 
+export function buildTodayViewContent() {
+  const contentContainer = document.getElementById("content");
+  contentContainer.innerHTML = "";
+  const todayProjectList = getDatesToday();
+  todayProjectList.forEach((project) => {
+    const projectContainer = buildProjectContainer();
+    contentContainer.appendChild(projectContainer);
+    buildProjectName(project, projectContainer);
+    project.taskList.forEach((task) => {
+      buildIndividualTask(task, project, contentContainer);
+    });
+  });
+}
+
 function buildProjectContainer() {
   const projectContainer = document.createElement("div");
   projectContainer.classList.add("project-container");
