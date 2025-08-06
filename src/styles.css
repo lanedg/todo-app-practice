@@ -36,7 +36,7 @@ main {
   padding: 1em;
   background-color: var(--sidebar-background-color);
   display: grid;
-  grid-template-rows: 5vh 25vh 55vh;
+  grid-template-rows: 10vh 15vh 60vh;
   gap: 4vh;
 }
 
@@ -47,7 +47,7 @@ main {
 #sidebar-navigation-container {
   height: 15vh;
   display: grid;
-  grid-template-rows: 1fr 1fr 1fr 2fr 2fr;
+  grid-template-rows: 1fr 1fr 1fr;
   gap: 0.2em;
 }
 
@@ -59,6 +59,17 @@ main {
 
 .sidebar-button:hover {
   text-decoration: underline;
+}
+
+#today-button {
+  background-color: var(--sidebar-background-color);
+  border: none;
+  font-size: 2rem;
+  color: var(--content-contrast-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2em;
 }
 
 #create-project {
