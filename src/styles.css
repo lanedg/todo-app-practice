@@ -170,6 +170,7 @@ main {
   height: 85%;
   padding: 1rem 3rem;
   background-color: var(--main-content-background-color);
+  overflow-y: auto;
 }
 
 .project-name {

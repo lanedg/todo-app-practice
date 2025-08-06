@@ -14,3 +14,13 @@ function buildProjectOverviewHeader(project, overviewContainer) {
   overviewContainer.appendChild(header);
   buildProjectDeleteButton(project, overviewContainer);
 }
+
+export function buildTodayOverview() {
+  const overview = document.getElementById("overview");
+  overview.innerHTML = "";
+  overview.setAttribute("data-overview-id", "today");
+  const todayHeader = document.createElement("h1");
+  todayHeader.classList.add("overview-header");
+  todayHeader.textContent = "Today";
+  overview.appendChild(todayHeader);
+}
