@@ -7,6 +7,11 @@ export function retrieveProjectList() {
     return projectList;
   } else {
     const projectList = JSON.parse(localStorage.getItem("projectList"));
+    projectList.forEach((project) => {
+      project.taskList.forEach((task) => {
+        task.dueDate = new Date(task.dueDate);
+      });
+    });
     return projectList;
   }
 }
