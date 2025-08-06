@@ -6,12 +6,27 @@ import {
 import deleteIcon from "../assets/deleteSVG.svg";
 import { addTaskDeleteEventListener } from "./taskDeleteEventListener";
 import { addProjectDeleteEventListener } from "./projectDeleteEventListener";
+import { getDatesToday } from "../todayView/todayDateArray";
 
 export function buildProjectViewContent(project) {
   const contentContainer = document.getElementById("content");
   contentContainer.innerHTML = "";
   project.taskList.forEach((task) => {
     buildIndividualTask(task, project, contentContainer);
+  });
+}
+
+export function buildTodayViewContent() {
+  const contentContainer = document.getElementById("content");
+  contentContainer.innerHTML = "";
+  const todayProjectList = getDatesToday();
+  todayProjectList.forEach((project) => {
+    const projectContainer = buildProjectContainer();
+    contentContainer.appendChild(projectContainer);
+    buildProjectName(project, projectContainer);
+    project.taskList.forEach((task) => {
+      buildIndividualTask(task, project, contentContainer);
+    });
   });
 }
 
