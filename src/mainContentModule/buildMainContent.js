@@ -2,6 +2,7 @@ import { addTaskCompletedEventListener } from "./taskCompletedEventListener";
 import deleteIcon from "../assets/deleteSVG.svg";
 import { addTaskDeleteEventListener } from "./taskDeleteEventListener";
 import { addProjectDeleteEventListener } from "./projectDeleteEventListener";
+import { getDatesToday } from "../todayView/todayDateArray";
 
 export function buildProjectViewContent(project) {
   const contentContainer = document.getElementById("content");
@@ -42,7 +43,6 @@ export function buildProjectDeleteButton(project, projectContainer) {
   const projectDeleteButton = document.createElement("button");
   projectDeleteButton.classList.add("project-delete");
   const deleteSVG = document.createElement("img");
-  console.log(deleteIcon);
   deleteSVG.src = deleteIcon;
   deleteSVG.alt = "";
   projectDeleteButton.appendChild(deleteSVG);
